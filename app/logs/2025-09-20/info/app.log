@@ -12,3 +12,6 @@
 2025-09-20 12:54:03,637 - info - INFO - f46e0b3f-4a95-40f3-b696-f45a49f66e69 - GET /api/v1/db-health 200 3.22ms
 2025-09-20 12:55:46,647 - info - INFO - a4464dfa-635f-4aa3-ad4a-aec268234405 - GET /docs 200 0.19ms
 2025-09-20 12:55:46,703 - info - INFO - 70e2aa39-5a54-4fb5-bb53-9cc1c72a09ea - GET /api/v1/openapi.json 200 3.46ms
+2025-09-20 13:19:01,167 - info - INFO - ce3a0f53-1d0e-4425-9480-3c421981bfac - GET /docs 200 0.61ms
+2025-09-20 13:19:01,279 - info - INFO - 3fe529b4-28ed-47ba-8a4d-91a70026f79a - GET /api/v1/openapi.json 200 6.99ms
+2025-09-20 13:20:23,232 - info - INFO - f9cfce6b-bf2b-42e4-9910-76c508d9e500 - POST /api/v1/breeze/login 200 0.59ms

@@ -7,6 +7,11 @@ Use FastAPI, uv (not pip), SQLAlchemy, Pydantic, and Alembic.
 Store constants, sensitive data and log levels in app/config.py.
 
 Use SQLite in app/database/trading_alerts.db.
+Organize code into routers/, schemas/, services/, and middleware/.
+Use Annotated[...] for all query, path, and body parameters.
+
+Add descriptions, examples, and enum dropdowns in Swagger using annotations.
+Define Enums as class MyEnum(str, Enum) to enable dropdowns.
 
 All logs must be saved locally in:
 app/logs/{YYYY-MM-DD}/[info|error|request]/
@@ -27,4 +32,4 @@ Use Pydantic for schemas, routers/ for endpoints, services/ for business logic.
 
 Code must be Pythonic, type-annotated, readable, and production-scalable.
 
-Now, generate code for: [Insert your task here]
+Now, generate code for: 

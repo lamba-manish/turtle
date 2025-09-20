@@ -30,7 +30,64 @@ Follow this directory structure:
 
 📄 Code Style & Practices
 
-Use Pydantic models in schemas/ for validation of API requests and responses.
+Use Pydantic models for request bodies (schemas/).
+
+Use Annotated from typing and FastAPI’s parameter functions (Query, Path, Body) for all parameters:
+
+from typing import Annotated
+from fastapi import Query, Path, Body
+
+All path, query, and body parameters must be annotated explicitly with:
+
+Descriptions (shown in Swagger)
+
+Examples (if applicable)
+
+Enums (to enable dropdowns in Swagger)
+
+✅ Example:
+
+from enum import Enum
+from fastapi import APIRouter, Query
+from typing import Annotated
+
+class AlertType(str, Enum):
+    price = "price"
+    volume = "volume"
+    breakout = "breakout"
+
+@router.get("/alerts/")
+def get_alerts(
+    alert_type: Annotated[
+        AlertType,
+        Query(description="Type of alert", example="price")
+    ],
+    limit: Annotated[int, Query(ge=1, le=100, description="Max results to return")] = 10,
+):
+    ...
+
+
+All Enums must be subclasses of str + Enum for dropdown behavior in Swagger.
+
+For body parameters:
+
+@router.post("/alerts/")
+def create_alert(
+    payload: Annotated[CreateAlertSchema, Body(description="Alert details")]
+):
+    ...
+
+Avoid using unannotated parameters like alert_type: AlertType without Annotated[...].
+
+Swagger UI should reflect:
+
+Dropdowns for enum values
+
+Descriptions for all inputs
+
+Required/optional indicators
+
+Example values (via Pydantic or Query/Path)
 
 Define SQLAlchemy ORM models in models.py and use them with Alembic.
 
