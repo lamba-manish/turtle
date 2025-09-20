@@ -1,0 +1,86 @@
+Use uv only for dependency installation:
+
+uv pip install fastapi uvicorn sqlalchemy alembic aiosqlite pydantic python-dotenv
+
+Store:
+
+All config constants (API keys, DB URI, log levels, environment-specific values, etc.) in app/config.py
+
+Use SQLite as the database (app/database/trading_alerts.db)
+Manage migrations with Alembic using autogeneration:
+
+alembic revision --autogenerate -m "describe change"
+alembic upgrade head
+
+
+Follow this directory structure:
+
+/app/
+  ├── config.py
+  ├── main.py
+  ├── database/
+  ├── routers/
+  ├── schemas/
+  ├── services/
+  ├── middleware/
+  └── logs/{YYYY-MM-DD}/
+      ├── info/
+      ├── error/
+      └── request/
+
+📄 Code Style & Practices
+
+Use Pydantic models in schemas/ for validation of API requests and responses.
+
+Define SQLAlchemy ORM models in models.py and use them with Alembic.
+
+All endpoints must be modularized inside routers/. Avoid putting routes in main.py.
+
+All business logic (e.g., ICICI Breeze API calls, scanning strategies) goes into services/.
+
+Do not hardcode API keys, credentials, or database URIs — always use values from config.py.
+
+Keep code clean, Pythonic, type-annotated, and PEP8-compliant. Use docstrings.
+
+🧾 Logging Rules
+
+All logs must be written locally in:
+
+app/logs/{YYYY-MM-DD}/[info|error|request]/
+
+
+Use the middleware system to:
+
+Generate a unique request_id for each incoming request
+
+Log all request/response bodies under request/ folder
+
+Log business and operational info in info/
+
+Log unexpected exceptions in error/
+
+Request ID (request_id) must be present in:
+
+All log entries (info, error, request)
+
+Response headers (for debugging via client)
+
+Exception tracebacks
+
+Log levels (DEBUG, INFO, ERROR) are controlled only from config.py:
+
+LOG_LEVEL = "DEBUG"  # or INFO, WARNING, ERROR
+
+🧪 Testing & Debugging
+
+Use Swagger UI (/docs) for testing endpoints.
+
+Trace a specific request by looking up the request_id in the logs.
+
+If any API fails or behaves unexpectedly, check:
+
+logs/{date}/request/ for raw request & response
+
+logs/{date}/error/ for full traceback
+
+logs/{date}/info/ for any business context

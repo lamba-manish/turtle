@@ -1,0 +1,66 @@
+---
+alwaysApply: true
+---
+# Cursor Rules (FastAPI + SQLite + ICICI Breeze Alert System + Logging)
+
+1. Must Use `uv` (not pip) for all dependency installation and management.
+2. Store all config variables like API keys, DB URI, log levels, environment-specific values etc. in `config.py`.
+3. Use **SQLite** stored in the `app/database/` folder (`trading_alerts.db`).
+4. Use **SQLAlchemy ORM** for models and **Alembic** for DB migrations.
+5. Use **Pydantic** models for request/response validation.
+6. Use **modular routers** in `app/routers/`.
+7. Use `services/` for business logic (e.g., scanning logic, API clients).
+8. **Logging System**:
+   - All logs must be saved locally under: `logs/{YYYY-MM-DD}/`
+   - Separate logs into:
+     - `logs/{date}/info/` → for general operation logs
+     - `logs/{date}/error/` → for unhandled or critical errors
+     - `logs/{date}/request/` → logs of incoming requests and outgoing responses
+   - Include a **unique `request_id`** for every request to trace logs end-to-end.
+   - Add a middleware to:
+     - Assign and attach `request_id` to the request
+     - Log incoming requests and outgoing responses with `request_id`
+     - Log exceptions with full stack traces and `request_id`
+   - Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL) is controlled from `config.py`
+   - Logs should be **human-readable (text)** during development (use JSON/log rotation in prod later).
+9. Use `HTTPException` for known errors and document them via response models.
+10. Catch unexpected errors in middleware and log them in `error/`.
+11. Code must be **Pythonic**, fully type-annotated, and PEP8-compliant.
+12. Avoid hardcoding values — always use `config.py`
+13. Ensure new features follow this structure:
+    - `routers/` for endpoints
+    - `schemas/` for Pydantic models
+    - `models.py` for SQLAlchemy models
+    - `services/` for business logic
+14. Middleware must:
+    - Log all requests/responses
+    - Inject `request_id`
+    - Handle and log unexpected errors
+15. Maintain the following folder structure:
+
+/project-root/
+│
+├── app/
+│ ├── config.py
+│ ├── main.py
+│ ├── database/
+│ │ ├── db.py
+│ │ └── models.py
+│ ├── migrations/ # Alembic migrations
+│ ├── routers/
+│ │ └── alerts.py
+│ ├── schemas/
+│ ├── services/
+│ │ └── icici_breeze.py
+│ ├── middleware/
+│ │ └── logging.py
+│ └── logs/
+│ └── YYYY-MM-DD/
+│ ├── info/
+│ ├── error/
+│ └── request/
+│
+├── alembic.ini
+├── pyproject.toml
+└── README.md
+

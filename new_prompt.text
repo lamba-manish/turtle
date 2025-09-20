@@ -1,0 +1,30 @@
+I'm developing a FastAPI-based trading alert system using SQLite and ICICI Breeze API. 
+Follow the cursorrules and user rules, you have already been provided cursorrules and user rules.
+Follow these project rules:
+
+Use FastAPI, uv (not pip), SQLAlchemy, Pydantic, and Alembic.
+
+Store constants, sensitive data and log levels in app/config.py.
+
+Use SQLite in app/database/trading_alerts.db.
+
+All logs must be saved locally in:
+app/logs/{YYYY-MM-DD}/[info|error|request]/
+
+Include a unique request_id for every request, added via middleware.
+
+Log:
+
+Incoming requests and outgoing responses under request/
+
+Business/operational info under info/
+
+Exceptions under error/
+
+The log level must be controlled from config.py
+
+Use Pydantic for schemas, routers/ for endpoints, services/ for business logic.
+
+Code must be Pythonic, type-annotated, readable, and production-scalable.
+
+Now, generate code for: [Insert your task here]
