@@ -1,0 +1,14 @@
+2025-09-20 12:36:20,364 - info - INFO - f1921fc3-2b6f-4a6c-a389-285db45cc9e4 - GET /api/v1/health 200 0.85ms
+2025-09-20 12:36:29,677 - info - INFO - 2ffb140e-13e0-4fa1-a26c-50632cdf6997 - GET /docs 200 0.74ms
+2025-09-20 12:36:30,052 - info - INFO - 5e0989ea-3231-498a-9e85-458638729ae8 - GET /api/v1/openapi.json 200 3.59ms
+2025-09-20 12:36:35,119 - info - INFO - 8f6ee231-7d55-4965-a53f-bc71a924b90b - GET /api/v1/health 200 0.81ms
+2025-09-20 12:44:39,913 - info - INFO - 2b3d1e48-5d62-46fb-9e92-90165e73465a - GET /docs 200 1.04ms
+2025-09-20 12:44:40,391 - info - INFO - 58e3df74-17dd-4650-9809-0740e8cffa9e - GET /api/v1/openapi.json 200 6.67ms
+2025-09-20 12:44:46,787 - info - INFO - 9f281dd7-73aa-44c2-a6e0-799c56f7b23c - GET /api/v1/db-health 500 37.22ms
+2025-09-20 12:50:59,590 - info - INFO - db575c97-ee8e-4f78-ae01-752d392c6240 - GET /docs 200 1.71ms
+2025-09-20 12:50:59,870 - info - INFO - 621e671a-b133-4ded-b624-641e9be8582a - GET /api/v1/openapi.json 200 9.49ms
+2025-09-20 12:53:55,180 - info - INFO - 5d7efaec-a81f-4ef2-89d2-6ef6d7bb5521 - GET /docs 200 0.36ms
+2025-09-20 12:53:55,252 - info - INFO - 6b19f394-1ea2-4a01-9e0b-fdb128c259c7 - GET /api/v1/openapi.json 200 4.42ms
+2025-09-20 12:54:03,637 - info - INFO - f46e0b3f-4a95-40f3-b696-f45a49f66e69 - GET /api/v1/db-health 200 3.22ms
+2025-09-20 12:55:46,647 - info - INFO - a4464dfa-635f-4aa3-ad4a-aec268234405 - GET /docs 200 0.19ms
+2025-09-20 12:55:46,703 - info - INFO - 70e2aa39-5a54-4fb5-bb53-9cc1c72a09ea - GET /api/v1/openapi.json 200 3.46ms

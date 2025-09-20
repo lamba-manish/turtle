@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: trading-alerts
+Version: 0.1.0
+Summary: Trading Alerts API
+Requires-Python: >=3.8
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: sqlalchemy
+Requires-Dist: alembic
+Requires-Dist: aiosqlite
+Requires-Dist: pydantic
+Requires-Dist: python-dotenv
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-asyncio; extra == "dev"
+Requires-Dist: httpx; extra == "dev"

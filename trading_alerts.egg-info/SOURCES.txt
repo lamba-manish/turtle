@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+app/__init__.py
+app/config.py
+app/main.py
+trading_alerts.egg-info/PKG-INFO
+trading_alerts.egg-info/SOURCES.txt
+trading_alerts.egg-info/dependency_links.txt
+trading_alerts.egg-info/requires.txt
+trading_alerts.egg-info/top_level.txt
